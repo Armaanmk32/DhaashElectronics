@@ -14,7 +14,7 @@ function Header() {
 
     return <div className="sm:flex  relative justify-between sm:px-16 items-center border-b-2 border-black shadow-2xl rounded-3xl m-5  p-4">
         
-        <Link to="/"> <h1 className="text-2xl text-[#e26d5c] font-medium"> <span className="text-black"> Dash</span>Electronics</h1> </Link> 
+        <Link to="/"> <h1 className="text-2xl text-[#e26d5c] font-medium"> <span className="text-black"> Dhaash</span>Electronics</h1> </Link> 
 
         <ul style={{ display: visible == true ? "block" : "" }} className="sm:flex hidden sm:p-0 p-2 gap-5 text-sm font-medium">
             <Link to="/">

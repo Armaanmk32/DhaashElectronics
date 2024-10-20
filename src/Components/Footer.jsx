@@ -8,7 +8,7 @@ function Footer() {
                 <div className="flex justify-between">
                     {/* Logo and Social Links */}
                     <div>
-                        <h2 className="text-xl font-bold text-black">Dhash<span className='text-[#e26d5c]'>Electronics</span> </h2>
+                        <h2 className="text-xl font-bold text-black">Dhaash<span className='text-[#e26d5c]'>Electronics</span> </h2>
                         <div className="flex space-x-4 mt-4">
                             <FaFacebookF className="text-xl text-[#000000]" />
                             <FaInstagram className="text-xl text-[#000000]" />
