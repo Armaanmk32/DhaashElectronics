@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ul li.active hr {
+    display: block; 
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
