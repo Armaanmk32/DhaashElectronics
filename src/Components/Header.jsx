@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
+import { ShopContext } from "../context/ShopContext"
 function Header() {
 
+    const {getCartCount} = useContext(ShopContext)
+    
     const [visible, setVisible] = useState(false)
 
     const handleClick = () => {
@@ -14,28 +17,28 @@ function Header() {
 
     return <div className="sm:flex  relative justify-between sm:px-16 items-center border-b-2 border-black shadow-2xl rounded-3xl m-5  p-4">
         
-        <Link to="/"> <h1 className="text-2xl text-[#e26d5c] font-medium"> <span className="text-black"> Dhaash</span>Electronics</h1> </Link> 
+        <Link to="/"> <h1 className="sm:text-2xl text-xl text-[#e26d5c]  font-medium"> <span className="text-black"> Dhaash</span>Electronics</h1> </Link> 
 
-        <ul style={{ display: visible == true ? "block" : "" }} className="sm:flex hidden sm:p-0 p-2 gap-5 text-sm font-medium">
+        <ul style={{ display: visible == true ? "block" : "" }} className="sm:flex hidden sm:p-0 p-2 gap-6 text-sm font-medium">
             <Link to="/">
-                <li className="">Home</li>
+                <li className="p-2 ">Home</li>
                 <hr className="w-[40px] bg-gray-700 h-[1.5px] border-none hidden" />
             </Link>
 
             <Link to="/collection">
-                <li className="">Collection</li>
+                <li className="p-2 ">Collection</li>
                 <hr className="w-[65px] bg-gray-700 h-[1.5px] border-none hidden" />
 
             </Link>
 
             <Link to="/about">
-                <li className="">About</li>
+                <li className="p-2 ">About</li>
                 <hr className="w-[40px] bg-gray-700 h-[1.5px] border-none hidden" />
 
             </Link>
 
             <Link to="/contact">
-                <li className="">Contact Us</li>
+                <li className="p-2 ">Contact Us</li>
                 <hr className="w-[65px] bg-gray-700 h-[1.5px] border-none hidden" />
 
             </Link>
@@ -43,7 +46,7 @@ function Header() {
         </ul>
 
         <div className="flex  items-center gap-6">
-            <div className="absolute top-5 right-4 flex gap-6 items-center">
+            <div className="absolute top-5 right-4 flex sm:gap-6 gap-2 items-center">
 
                 <Link to="/collection">
                 <i className="cursor-pointer text-xl fa-solid fa-magnifying-glass"></i>
@@ -64,7 +67,7 @@ function Header() {
 
                 <Link to="/cart" className="relative">
                     <i class="cursor-pointer text-xl fa-solid fa-cart-shopping"></i>
-                    <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px] ">10</p>
+                    <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px] ">{getCartCount()} </p>
                 </Link>
                 
                 <div className="sm:hidden">

@@ -7,7 +7,7 @@ function Product() {
 
     const { productId } = useParams()
 
-    const { products } = useContext(ShopContext)
+    const { products, addToCartIem} = useContext(ShopContext)
     const [productData, setProductData] = useState(false)
     const [image, setImage] = useState("")
 
@@ -16,7 +16,6 @@ function Product() {
             if (item._id === productId) {
                 setProductData(item)
                 setImage(item.image[0])
-                console.log(item);
 
                 return null;
             }
@@ -63,7 +62,7 @@ function Product() {
                 <p className="font-medium text-3xl mt-5 ">${productData.price} </p>
                 <p className="mt-5 text-gray-500  ">{productData.description} </p>
             
-                <button className="bg-black text-white px-8 py-3 text-sm mt-4 active:bg-gray-700">ADD TO CART</button>
+                <button onClick={()=> addToCartIem(productData._id)} className="bg-black text-white px-8 py-3 text-sm mt-4 active:bg-gray-700">ADD TO CART</button>
                     <hr className="mt-8 sm:w-4/5 " />
                     <div className="text-sm text-gray-500 mt-5 flex-col gap-1 ">
                     <p>100% Original products.</p>
