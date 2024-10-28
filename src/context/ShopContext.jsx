@@ -1,13 +1,17 @@
 import { createContext, useEffect, useState } from "react";
 import { products } from "../assets/assets"
 import { toast } from "react-toastify";
-
+import {useNavigate} from "react-router-dom"
+  
 export const ShopContext = createContext()
 
 const ShopContextProvider = (props)=>{
 
     const [search, setSearch] = useState("")
     const [cartItems, setCartItems] = useState({})
+    const delivery_fee = 2; 
+    const navigate = useNavigate()
+    
 
 
     const addToCartIem = (itemId) => {
@@ -45,7 +49,22 @@ const ShopContextProvider = (props)=>{
         setCartItems(cartData);
 
     }
+    const getCartAmount = () => {
+        let totalAmount = 0;
+        
+        // Loop garee `cartItems` si aad u hesho shey kasta oo ku jira gaadhiga
+        for (const itemId in cartItems) {
+            const itemInfo = products.find((product) => product._id === itemId); // Hel xogta sheyga la dhigaya `itemId`
+            
+            if (itemInfo) {
+                totalAmount += itemInfo.price * cartItems[itemId]; // Kordhi wadarta qiimaha iyadoo la adeegsanayo tirada
+            }
+        }
+        
+        return totalAmount;
+    };
     
+       
 
 
 
@@ -66,7 +85,9 @@ const ShopContextProvider = (props)=>{
             cartItems,
             addToCartIem,
             getCartCount,
-            updateQuantity
+            updateQuantity,
+            getCartAmount,
+            delivery_fee, navigate
         }
 
         return (

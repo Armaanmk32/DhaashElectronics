@@ -7,7 +7,9 @@ import Header from "./Components/Header"
 import Footer from "./Components/Footer"
 import Product from "./Pages/Product"
 import Cart from "./Pages/Cart"
+import CartTotal from "./Pages/CartTotal"
 import { ToastContainer, toast } from 'react-toastify';
+import PlaceOder from "./Pages/PlaceOder"
 import 'react-toastify/dist/ReactToastify.css';
 function App(){
   return <div>
@@ -20,6 +22,8 @@ function App(){
       <Route path="/about" element={<About/>} />
       <Route path="/contact" element={<Contact/>} />
       <Route path="/cart" element={<Cart/>} />
+      <Route path="/cartTotal" element={<CartTotal/>} />
+      <Route path="/placeOder" element={<PlaceOder/>} />
       <Route path="/product/:productId" element={<Product/>} />
 
     </Routes>
