@@ -26,7 +26,7 @@ function Header() {
             </Link>
 
             <Link to="/collection">
-                <li className="p-2 ">Collection</li>
+                <li className="p-2 ">Electronics</li>
                 <hr className="w-[65px] bg-gray-700 h-[1.5px] border-none hidden" />
 
             </Link>
